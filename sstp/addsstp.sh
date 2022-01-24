@@ -11,8 +11,6 @@ PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
-# Getting
-MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
 # Getting
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
@@ -86,7 +84,7 @@ domain=$(cat /etc/xray/domain)
 else
 domain=$IP2
 fi
-IP=$(wget -qO- ipinfo.io/ip);
+MYIP=$(curl -sS ipinfo.io/ip)
 sstp="$(cat ~/log-install.txt | grep -i SSTP | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 		read -rp "Usernew : " -e user
@@ -112,7 +110,7 @@ cat <<EOF
 ============================
 SSTP VPN
 ============================
-IP/Host   : $IP
+IP/Host   : $MYIP
 Domain    : $domain
 Username  : $user
 Password  : $pass
