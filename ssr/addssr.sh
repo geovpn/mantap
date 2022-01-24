@@ -12,10 +12,9 @@ CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
 # Getting
-MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
 clear
-IP=$(wget -qO- ipinfo.io/ip);
+MYIP=$(curl -sS ipinfo.io/ip)
 read -e -p "Username : " ssr_user
 CLIENT_EXISTS=$(grep -w $ssr_user /usr/local/shadowsocksr/akun.conf | wc -l)
 if [[ ${CLIENT_EXISTS} == '1' ]]; then
@@ -59,11 +58,11 @@ ssr_link="ssr://${tmp2}"
 /etc/init.d/ssrmu restart
 systemctl restart ssrmu
 service cron restart
-IP=$(wget -qO- ifconfig.co);
+MYIP=$(curl -sS ipinfo.io/ip)
 clear
 echo -e ""
 echo -e "======-SHADOWSOCKSR-======"
-echo -e "IP/Host     : ${IP}"
+echo -e "IP/Host     : ${MYIP}"
 echo -e "Domain      : $domain"
 echo -e "Port        : ${ssr_port}"
 echo -e "Password    : ${ssr_password}"
