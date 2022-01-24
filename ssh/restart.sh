@@ -85,18 +85,32 @@ echo -e "Starting Restart All Service" | lolcat
 sleep 2
 systemctl restart shadowsocks-libev-server@tls
 systemctl restart shadowsocks-libev-server@http
+sleep 1
+echo -e "[ ${green}ok${NC} ] Restarting ssrmu "
 /etc/init.d/ssrmu restart
+echo -e "[ ${green}ok${NC} ] Restarting ssh "
 /etc/init.d/ssh restart
+echo -e "[ ${green}ok${NC} ] Restarting dropbear "
 /etc/init.d/dropbear restart
+echo -e "[ ${green}ok${NC} ] Restarting sslh "
 /etc/init.d/sslh restart
+echo -e "[ ${green}ok${NC} ] Restarting stunnel4 "
 /etc/init.d/stunnel4 restart
+echo -e "[ ${green}ok${NC} ] Restarting openvpn "
 /etc/init.d/openvpn restart
+echo -e "[ ${green}ok${NC} ] Restarting fail2ban "
 /etc/init.d/fail2ban restart
+echo -e "[ ${green}ok${NC} ] Restarting cron "
 /etc/init.d/cron restart
+echo -e "[ ${green}ok${NC} ] Restarting nginx "
 /etc/init.d/nginx restart
+echo -e "[ ${green}ok${NC} ] Restarting squid "
 /etc/init.d/squid restart
+echo -e "[ ${green}ok${NC} ] Restarting xl2tpd "
 /etc/init.d/xl2tpd restart
+echo -e "[ ${green}ok${NC} ] Restarting pptpd "
 /etc/init.d/pptpd restart
+echo -e "[ ${green}ok${NC} ] Restarting accel-ppp "
 /etc/init.d/accel-ppp restart
 systemctl restart ssrmu
 systemctl restart ws-tls
@@ -106,13 +120,14 @@ systemctl restart xray@v2ray-nontls
 systemctl restart xray@vless-tls
 systemctl restart xray@vless-nontls
 systemctl restart xray@trojan
+echo -e "[ ${green}ok${NC} ] Restarting shadowsocks-libev "
 /etc/init.d/shadowsocks-libev restart
 systemctl restart shadowsocks-libev
 systemctl restart xl2tpd
 systemctl restart pptpd
 systemctl restart ipsec
 systemctl restart accel-ppp
-systemctl restart ws-ovpn
+systemctl restart ws-openvpn
 systemctl restart wg-quick@wg0
 systemctl restart ssh-ohp
 systemctl restart dropbear-ohp
