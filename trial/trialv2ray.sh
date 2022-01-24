@@ -10,16 +10,8 @@ white='\x1b[37m'
 bold='\033[1m'
 off='\x1b[m'
 flag='\x1b[47;41m'
-MYIP=$(wget -qO- ipv4.icanhazip.com);
+MYIP=$(curl -sS ipinfo.io/ip)
 echo "Checking VPS"
-IZIN=$( curl https://raw.githubusercontent.com/geovpn/perizinan/main/ip | grep $MYIP )
-if [ $MYIP = $IZIN ]; then
-echo -e "${green}Permission Accepted...${NC}"
-else
-echo -e "${red}Permission Denied!${NC}";
-echo "Only For Premium Users"
-exit 0
-fi
 clear
 source /var/lib/geovpnstore/ipvps.conf
 if [[ "$IP" = "" ]]; then
