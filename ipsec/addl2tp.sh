@@ -78,7 +78,7 @@ exit 0
 fi
 clear                                       
 if [[ "$IP" = "" ]]; then
-PUBLIC_IP=$(wget -qO- ipinfo.io/ip);
+MYIP=$(curl -sS ipinfo.io/ip)
 else
 PUBLIC_IP=$IP
 fi
@@ -122,7 +122,7 @@ cat <<EOF
 ============================
 L2TP/IPSEC PSK VPN
 ============================
-IP/Host    : $PUBLIC_IP
+IP/Host    : $MYIP
 Domain     : $domain
 IPsec PSK  : myvpn
 Username   : $VPN_USER
