@@ -14,8 +14,7 @@ flag='\x1b[47;41m'
 ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
 CITY=$(curl -s ipinfo.io/city )
 COUNTRY=$(curl -s ipinfo.io/country )
-
-MYIP=$(wget -qO- ipinfo.io/ip);
+MYIP=$(curl -sS ipinfo.io/ip)
 clear
 tr="$(cat ~/log-install.txt | grep -w "Trojan" | cut -d: -f2|sed 's/ //g')"
 uuid=$(cat /etc/trojan/uuid.txt)
