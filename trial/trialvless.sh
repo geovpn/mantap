@@ -2,7 +2,7 @@
 red='\e[1;31m'
 green='\e[0;32m'
 NC='\e[0m'
-MYIP=$(wget -qO- ifconfig.me/ip);
+MYIP=$(curl -sS ipinfo.io/ip)
 echo "Checking VPS"
 clear
 source /var/lib/geovpnstore/ipvps.conf
