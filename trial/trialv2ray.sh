@@ -12,6 +12,14 @@ off='\x1b[m'
 flag='\x1b[47;41m'
 MYIP=$(wget -qO- ipv4.icanhazip.com);
 echo "Checking VPS"
+IZIN=$( curl https://raw.githubusercontent.com/geovpn/perizinan/main/ip | grep $MYIP )
+if [ $MYIP = $IZIN ]; then
+echo -e "${green}Permission Accepted...${NC}"
+else
+echo -e "${red}Permission Denied!${NC}";
+echo "Only For Premium Users"
+exit 0
+fi
 clear
 source /var/lib/geovpnstore/ipvps.conf
 if [[ "$IP" = "" ]]; then
@@ -19,6 +27,10 @@ domain=$(cat /etc/xray/domain)
 else
 domain=$IP
 fi
+read -rp "Bug: " -e bug
+tls="$(cat ~/log-install.txt | grep -w "Vmess TLS" | cut -d: -f2|sed 's/ //g')"
+nontls="$(cat ~/log-install.txt | grep -w "Vmess None TLS" | cut -d: -f2|sed 's/ //g')"
+
 # Create Expried 
 masaaktif="1"
 exp=$(date -d "$masaaktif days" +"%Y-%m-%d")
@@ -42,7 +54,7 @@ cat>/etc/xray/$user-tls.json<<EOF
       "net": "ws",
       "path": "geo",
       "type": "none",
-      "host": "${bug}",
+      "host": "${domain}",
       "tls": "tls"
 }
 EOF
@@ -76,25 +88,19 @@ echo -e " Remarks        : ${user}"
 echo -e " Bug            : ${bug}"
 echo -e " Domain         : ${domain}"
 echo -e " Port TLS       : ${tls}"
-echo -e " Port NON-TLS   : ${none}"
+echo -e " Port No TLS    : ${nontls}"
 echo -e " ID             : ${uuid}"
 echo -e " AlterID        : 2"
 echo -e " Security       : auto"
 echo -e " Network        : ws"
 echo -e " Path           : geo${off}"
 echo -e "${cyan}=====================${off}"
-echo -e "${purple}~> VMESS TLS${off}"
-echo -e ""
-echo -e "${vmesslink1}"
-echo -e ""
-echo -e "${cyan}====================${off}"
-echo -e "${purple}~> VMESS NON-TLS${off}"
-echo -e ""
-echo -e "${vmesslink2}"
-echo -e ""
-echo -e "${cyan}====================${off}"
+echo -e "${purple}~> VMESS TLS : $off${xrayv2ray1}"
+echo -e "${cyan}=====================${off}"
+echo -e "${purple}~> VMESS NON-TLS : $off${xrayv2ray2}"
+echo -e "${cyan}=====================${off}"
 echo -e " ${green}Aktif Selama   : $masaaktif Hari"
-echo -e "${cyan}====================${off}"
+echo -e "${cyan}=====================${off}"
 echo -e ""
 echo -e "Script By Geo.NTB" | lolcat
 echo -e ""
