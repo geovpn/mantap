@@ -12,9 +12,6 @@ CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
 # Getting
-MYIP=$(wget -qO- ipinfo.io/ip);
-echo "Checking VPS"
-# Getting
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 #########################
@@ -121,7 +118,7 @@ fi
 CLIENT_DNS_1="176.103.130.130"
 
 CLIENT_DNS_2="176.103.130.131"
-MYIP=$(wget -qO- ifconfig.co);
+MYIP=$(curl -sS ipinfo.io/ip)
 read -p "Expired (Days) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
