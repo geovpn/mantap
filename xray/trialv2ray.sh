@@ -50,11 +50,11 @@ cat>/etc/xray/$user-tls.json<<EOF
       "add": "${domain}",
       "port": "${tls}",
       "id": "${uuid}",
-      "aid": "2",
+      "aid": "0",
       "net": "ws",
       "path": "geo",
       "type": "none",
-      "host": "${domain}",
+      "host": "${bug}",
       "tls": "tls"
 }
 EOF
@@ -65,7 +65,7 @@ cat>/etc/xray/$user-none.json<<EOF
       "add": "${bug}",
       "port": "${none}",
       "id": "${uuid}",
-      "aid": "2",
+      "aid": "0",
       "net": "ws",
       "path": "geo",
       "type": "none",
@@ -90,17 +90,19 @@ echo -e " Domain         : ${domain}"
 echo -e " Port TLS       : ${tls}"
 echo -e " Port No TLS    : ${nontls}"
 echo -e " ID             : ${uuid}"
-echo -e " AlterID        : 2"
+echo -e " AlterID        : 0"
 echo -e " Security       : auto"
 echo -e " Network        : ws"
 echo -e " Path           : geo${off}"
 echo -e "${cyan}=====================${off}"
-echo -e "${purple}~> VMESS TLS : $off${xrayv2ray1}"
-echo -e "${cyan}=====================${off}"
-echo -e "${purple}~> VMESS NON-TLS : $off${xrayv2ray2}"
-echo -e "${cyan}=====================${off}"
+echo -e "${purple}~> VMESS TLS${off}"
+echo -e "${vmesslink1}"
+echo -e "${cyan}====================${off}"
+echo -e "${purple}~> VMESS NON-TLS${off}"
+echo -e "${vmesslink2}"
+echo -e "${cyan}====================${off}"
 echo -e " ${green}Aktif Selama   : $masaaktif Hari"
-echo -e "${cyan}=====================${off}"
+echo -e "${cyan}====================${off}"
 echo -e ""
 echo -e "Script By Geo.NTB" | lolcat
 echo -e ""
