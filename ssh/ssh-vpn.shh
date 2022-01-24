@@ -464,20 +464,31 @@ wget -O domen "https://${geovpnnnnnnn}/domen.sh"
 wget -O pointing "https://${geovpnnnnnnn}/pointing.sh"
 wget -O bw "https://${geovpnnnnnnn}/bw.sh"
 wget -O update "https://${geovpnnnnnnn}/update.sh"
-wget -O domen "https://${geovpnnnnnnn}/domen.sh"
+#wget -O host "https://${geovpnnnnnnn}/host.sh"
+wget -O /usr/bin/domen https://${geovpnnnnnnn}/domen.sh && chmod +x /usr/bin/domen && cd /usr/bin && apt install -y dos2unix && dos2unix domen
 #wget -O trial-akun "https://${geovpnnnnnnnn}/trial-akun.sh"
-wget -O triall2tp "https://${geovpnnnnnnnn}/triall2tp.sh"
-wget -O trialpptp "https://${geovpnnnnnnnn}/trialpptp.sh"
-wget -O trialss "https://${geovpnnnnnnnn}/trialss.sh"
-wget -O trialssh "https://${geovpnnnnnnnn}/trialssh.sh"
-wget -O trialssr "https://${geovpnnnnnnnn}/trialssr.sh"
-wget -O trialsstp "https://${geovpnnnnnnnn}/trialsstp.sh"
-wget -O trialtrojan "https://${geovpnnnnnnnn}/trialtrojan.sh"
-wget -O trialv2ray "https://${geovpnnnnnnnn}/trialv2ray.sh"
+#wget -O triall2tp "https://${geovpnnnnnnnn}/triall2tp.sh"
+wget -O /usr/bin/triall2tp https://${geovpnnnnnnnn}/triall2tp.sh && chmod +x /usr/bin/triall2tp && cd /usr/bin && apt install -y dos2unix && dos2unix triall2tp
+#wget -O trialpptp "https://${geovpnnnnnnnn}/trialpptp.sh"
+wget -O /usr/bin/trialpptp https://${geovpnnnnnnnn}/trialpptp.sh && chmod +x /usr/bin/trialpptp && cd /usr/bin && apt install -y dos2unix && dos2unix trialpptp
+#wget -O trialss "https://${geovpnnnnnnnn}/trialss.sh"
+wget -O /usr/bin/trialss https://${geovpnnnnnnnn}/trialss.sh && chmod +x /usr/bin/trialss && cd /usr/bin && apt install -y dos2unix && dos2unix trialss
+wget -O trialssh "https://${geovpn}/trialssh.sh"
+#wget -O trialssr "https://${geovpnnnnnnnn}/trialssr.sh"
+wget -O /usr/bin/trialssr https://${geovpnnnnnnnn}/trialssr.sh && chmod +x /usr/bin/trialssr && cd /usr/bin && apt install -y dos2unix && dos2unix trialssr
+#wget -O trialsstp "https://${geovpnnnnnnnn}/trialsstp.sh"
+wget -O /usr/bin/trialsstp https://${geovpnnnnnnnn}/trialsstp.sh && chmod +x /usr/bin/trialsstp && cd /usr/bin && apt install -y dos2unix && dos2unix trialsstp
+#wget -O trialtrojan "https://${geovpnnnnnnnn}/trialtrojan.sh"
+wget -O /usr/bin/trialtrojan https://${geovpnnnnnnnn}/trialtrojan.sh && chmod +x /usr/bin/trialtrojan && cd /usr/bin && apt install -y dos2unix && dos2unix trialtrojan
+#wget -O trialv2ray "https://${geovpnnnnnnnn}/trialv2ray.sh"
 wget -O /usr/bin/trialv2ray https://${geovpnnnnnnnn}/trialv2ray.sh && chmod +x /usr/bin/trialv2ray && cd /usr/bin && apt install -y dos2unix && dos2unix trialv2ray
-wget -O trialvless "https://${geovpnnnnnnnn}/trialvless.sh"
-wget -O trialwg "https://${geovpnnnnnnnn}/trialwg.sh"
-wget -O trialtrgo "https://${geovpnnnnnnnn}/trialtrgo.sh"
+#wget -O trialvless "https://${geovpnnnnnnnn}/trialvless.sh"
+wget -O /usr/bin/trialvless https://${geovpnnnnnnnn}/trialvless.sh && chmod +x /usr/bin/trialvless && cd /usr/bin && apt install -y dos2unix && dos2unix trialvless
+wget -O /usr/bin/trialv2ray https://${geovpnnnnnnnn}/trialv2ray.sh && chmod +x /usr/bin/trialv2ray && cd /usr/bin && apt install -y dos2unix && dos2unix trialv2ray
+#wget -O trialwg "https://${geovpnnnnnnnn}/trialwg.sh"
+wget -O /usr/bin/trialwg https://${geovpnnnnnnnn}/trialwg.sh && chmod +x /usr/bin/trialwg && cd /usr/bin && apt install -y dos2unix && dos2unix trialwg
+#wget -O trialtrgo "https://${geovpnnnnnnnn}/trialtrgo.sh"
+wget -O /usr/bin/trialtrgo https://${geovpnnnnnnnn}/trialtrgo.sh && chmod +x /usr/bin/trialtrgo && cd /usr/bin && apt install -y dos2unix && dos2unix trialtrgo
 chmod +x menu-backup
 chmod +x menu-domain
 chmod +x menu-l2tp
@@ -496,7 +507,6 @@ chmod +x bbr
 chmod +x status
 chmod +x running
 chmod +x trialtrgo
-chmod +x trial-akun
 chmod +x trialpptp
 chmod +x trialss
 chmod +x trialssh
