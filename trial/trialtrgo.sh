@@ -15,8 +15,7 @@ NC='\x1b[m'
 ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
 CITY=$(curl -s ipinfo.io/city )
 COUNTRY=$(curl -s ipinfo.io/country )
-
-MYIP=$(wget -qO- ipinfo.io/ip);
+MYIP=$(curl -sS ipinfo.io/ip)
 clear
 uuid1=$(cat /etc/trojan-go/uuid.txt)
 uuid2=$(cat /etc/trojan/uuid.txt)
