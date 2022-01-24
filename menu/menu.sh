@@ -117,27 +117,20 @@ echo -e ""
  echo -e  "  ╔═══════════════════════════════════════════════════════════╗" | lolcat
  echo -e  "  ║                       [ INFORMASI VPS ]                   ║" |lolcat
 echo -e  "  ╠═══════════════════════════════════════════════════════════╣"| lolcat
-echo -e " $bl ║ \e[36;1m• ISP Name          :\e[0m$bd $ISP"
- echo -e " $bl ║ \e[36;1m• City              :\e[0m$bd $CITY"
- echo -e " $bl ║ \e[36;1m• CPU Model         :\e[0m$bd$cname"
- echo -e " $bl ║ \e[36;1m• Number Of Cores   :\e[0m$bd $cores"
- echo -e " $gl ║ \e[36;1m• CPU Frequency     :\e[0m$bd$freq MHz"
- echo -e " $gl ║ \e[36;1m• Total RAM         :\e[0m$bd $tram MB"
- echo -e " $gl ║ \e[36;1m• Waktu             :\e[0m$bd $jam"
- echo -e " $mg ║ \e[36;1m• Hari              :\e[0m$bd $hari"
- echo -e " $mg ║ \e[36;1m• Tanggal           :\e[0m$bd $tnggl"
- echo -e " $mg ║ \e[36;1m• IP VPS            :\e[0m$bd $IPVPS"
- echo -e " $mg ║ \e[36;1m• Domain            :\e[0m$bd $DOMAIN"
- if [[ $(cat /opt/.ver) = $serverV ]] > /dev/null 2>&1; then
-echo -e "Version       :\033[1;36m $(cat /opt/.ver) Latest Version\e[0m"
-echo -e "Client Name   : $Name"
-echo -e "Expiry script : $Exp"
-rm -f /home/needupdate > /dev/null 2>&1
-else
-rm /dev/.permiss > /dev/null 2>&1
-touch /home/needupdate > /dev/null 2>&1
-echo -e "\033[0;33mVersion : $(cat /opt/.ver) Update available to $serverV\e[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e " $bl ║ ${color1} •${color3}$bd ISP Name          ${color1} :${color3}$bd $ISP"
+ echo -e " $bl ║ ${color1} •${color3}$bd City              ${color1} :${color3}$bd $CITY"
+ echo -e " $bl ║ ${color1} •${color3}$bd CPU Model         ${color1} :${color3}$bd$cname"
+ echo -e " $bl ║ ${color1} •${color3}$bd Number Of Cores   ${color1} :${color3}$bd $cores"
+ echo -e " $gl ║ ${color1} •${color3}$bd CPU Frequency     ${color1} :${color3}$bd$freq MHz"
+ echo -e " $gl ║ ${color1} •${color3}$bd Total RAM         ${color1} :${color3}$bd $tram MB"
+ echo -e " $gl ║ ${color1} •${color3}$bd Waktu             ${color1} :${color3}$bd $jam"
+ echo -e " $mg ║ ${color1} •${color3}$bd Hari              ${color1} :${color3}$bd $hari"
+ echo -e " $mg ║ ${color1} •${color3}$bd Tanggal           ${color1} :${color3}$bd $tnggl"
+ echo -e " $mg ║ ${color1} •${color3}$bd IP VPS            ${color1} :${color3}$bd $IPVPS"
+ echo -e " $mg ║ ${color1} •${color3}$bd Domain            ${color1} :${color3}$bd $DOMAIN"
+ echo -e " $mg ║ ${color1} •${color3}$bd Client Name       ${color1} :${color3}$bd $Name"
+ echo -e " $mg ║ ${color1} •${color3}$bd Expiry script     ${color1} :${color3}$bd $Exp"
+ echo -e " $mg ║ ${color1} •${color3}$bd Version           ${color1} :${color3}$bd Latest Version"
  echo -e  "  ╠══════════════════════════════════════════════════════════╣" | lolcat
  echo -e  "  ║                       [ MENU OPTIONS ]                   ║" |lolcat
  echo -e  "  ╠══════════════════════════════════════════════════════════╣" | lolcat
@@ -149,12 +142,11 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
  echo -e  " $bl ║${color1} 6${color3}.$bd Backup Section (${color2}menu-backup${color3})                       $mg   ║"
  echo -e  " $mg ║${color1} 7${color3}.$bd Trial Account Section (${color2}menu-trial${color3})          $mg          ║"
  echo -e  " $mg ║${color1} 8${color3}.$bd System Tools Section (${color2}menu-tools${color3})                  $mg   ║"
- echo -e  " $mg ║${color1} 9${color3}.$bd Bot-Panel $sts           $mg   ║"
  echo -e  "  \e[1;32m╠══════════════════════════════════════════════════════════╣" | lolcat
  echo -e  " $bl ║${color1} x${color3}.$bd  Exit Main Menu   (${color2}exit${color3})                           $mg   ║" 
  echo -e  "  \e[1;32m╚══════════════════════════════════════════════════════════╝" | lolcat
  echo -e  ""
- read -p "  Please Enter The Number [1-9 or x] :  " menu
+ read -p "  Please Enter The Number [1-8 or x] :  " menu
 echo -e   ""
 echo -e   ""
 echo -e   ""
@@ -194,3 +186,4 @@ echo "Masukkan Nomor Yang Ada Sayang!"
 menu
 ;;
 esac
+
