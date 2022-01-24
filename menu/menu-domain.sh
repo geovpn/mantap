@@ -81,7 +81,7 @@ echo -e "${color1}2${color3}.$bd Add ID Cloudflare (${color2}id-cloudflare${colo
 echo -e "${color1}3${color3}.$bd Cloudflare Add-Ons (${color2}Add-Ons${color3})"
 echo -e "${color1}4${color3}.$bd Pointing BUG (${color2}bug-point${color3})"
 echo -e "${color1}5${color3}.$bd Renew Certificate V2RAY (${color2}certv2ray${color3})"
-echo -e "${color1}6${color3}.$bd Add cf (${color2}add-cf${color3})"
+echo -e "${color1}6${color3}.$bd Add Domain (${color2}domen${color3})"
 echo -e ""
 echo -e "${color1}x${color3}.$bd menu"
 echo -e ""
@@ -104,7 +104,7 @@ case $key in
  certv2ray
  ;;
  6)
- addcf
+ domen
  ;;
 x)
 menu-tools
