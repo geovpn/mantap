@@ -464,7 +464,7 @@ wget -O domen "https://${geovpnnnnnnn}/domen.sh"
 wget -O pointing "https://${geovpnnnnnnn}/pointing.sh"
 wget -O bw "https://${geovpnnnnnnn}/bw.sh"
 wget -O update "https://${geovpnnnnnnn}/update.sh"
-wget -O host "https://${geovpnnnnnnn}/host.sh"
+wget -O domen "https://${geovpnnnnnnn}/domen.sh"
 #wget -O trial-akun "https://${geovpnnnnnnnn}/trial-akun.sh"
 wget -O triall2tp "https://${geovpnnnnnnnn}/triall2tp.sh"
 wget -O trialpptp "https://${geovpnnnnnnnn}/trialpptp.sh"
@@ -572,7 +572,7 @@ chmod +x addcf
 chmod +x cfd
 chmod +x cff
 chmod +x cfh
-chmod +x host
+chmod +x domen
 chmod +x pointing
 chmod +x bw
 echo "0 5 * * * root clearlog && reboot" >> /etc/crontab
