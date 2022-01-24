@@ -38,7 +38,7 @@ BURIQ () {
     rm -f /root/tmp
 }
 
-MYIP=$(curl -sS ipinfo.io/ip)
+MYIP=$(wget -qO- ipinfo.io/ip);
 Name=$(curl -sS https://raw.githubusercontent.com/geovpn/perizinan/main/main/allow | grep $MYIP | awk '{print $2}')
 echo $Name > /usr/local/etc/.$Name.ini
 CekOne=$(cat /usr/local/etc/.$Name.ini)
@@ -92,7 +92,7 @@ read -p "Username : " Login
 read -p "Password : " Pass
 read -p "Expired (Days): " masaaktif
 
-IP=$(wget -qO- ipinfo.io/ip);
+MYIP=$(wget -qO- ipinfo.io/ip);
 ssl="$(cat ~/log-install.txt | grep -w "Stunnel5" | cut -d: -f2)"
 sqd="$(cat ~/log-install.txt | grep -w "Squid" | cut -d: -f2)"
 ovpn="$(netstat -nlpt | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
@@ -112,7 +112,7 @@ echo -e "Password      : $Pass"
 echo -e "Created       : $hariini"
 echo -e "Expired       : $expi ${off}"
 echo -e "${GREEN}==============================${off}"
-echo -e "${CYAN}IP/Host       : ${domain} / $IP"
+echo -e "${CYAN}IP/Host       : ${domain} / $MYIP"
 echo -e "OpenSSH       : 443, 22"
 echo -e "Dropbear      : 443, 109, 143"
 echo -e "SSL/TLS       :$ssl"
