@@ -13,7 +13,7 @@ LIGHT='\033[0;37m'
 off='\x1b[m'
 # ==========================================
 # Getting
-MYIP=$(wget -qO- ipinfo.io/ip);
+MYIP=$(curl -sS ipinfo.io/ip)
 echo "Checking VPS"
 # Getting
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
@@ -88,7 +88,7 @@ else
 domain=$IP2
 fi
 clear
-IP=$(wget -qO- ipinfo.io/ip);
+MYIP=$(curl -sS ipinfo.io/ip)
 ssl="$(cat ~/log-install.txt | grep -w "Stunnel5" | cut -d: -f2)"
 sqd="$(cat ~/log-install.txt | grep -w "Squid" | cut -d: -f2)"
 ovpn="$(netstat -nlpt | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
@@ -111,7 +111,7 @@ echo -e "Password      : $Pass"
 echo -e "Created       : $hariini"
 echo -e "Expired       : $expi ${off}"
 echo -e "${GREEN}==============================${off}"
-echo -e "${CYAN}IP/Host       : ${domain} / $IP"
+echo -e "${CYAN}IP/Host       : ${domain} / $MYIP"
 echo -e "OpenSSH       : 443, 22"
 echo -e "Dropbear      : 443, 109, 143"
 echo -e "SSL/TLS       :$ssl"
