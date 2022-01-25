@@ -83,7 +83,11 @@ clear
 echo -e ""
 echo -e "Starting Restart All Service" | lolcat
 sleep 2
+sleep 1
+echo -e "[ ${green}ok${NC} ] Restarting shadowsocks-libev-server@tls "
 systemctl restart shadowsocks-libev-server@tls
+sleep 1
+echo -e "[ ${green}ok${NC} ] Restarting shadowsocks-libev-server@http "
 systemctl restart shadowsocks-libev-server@http
 sleep 1
 echo -e "[ ${green}ok${NC} ] Restarting ssrmu "
@@ -112,26 +116,70 @@ echo -e "[ ${green}ok${NC} ] Restarting pptpd "
 /etc/init.d/pptpd restart
 echo -e "[ ${green}ok${NC} ] Restarting accel-ppp "
 /etc/init.d/accel-ppp restart
+sleep 1
+echo -e "[ ${green}ok${NC} ] Restarting ssrmu "
 systemctl restart ssrmu
-systemctl restart ws-tls
-systemctl restart ws-nontls
+sleep 1
+echo -e "[ ${green}ok${NC} ] Restarting ws-dropbear.service "
+systemctl restart ws-dropbear.service
+sleep 1
+echo -e "[ ${green}ok${NC} ] Restarting ws-openssh.service "
+systemctl restart ws-openssh.service
+sleep 1
+echo -e "[ ${green}ok${NC} ] Restarting ws-openvpn.service "
+systemctl restart ws-openvpn.service
+sleep 1
+echo -e "[ ${green}ok${NC} ] Restarting ws-stunnel.service "
+systemctl restart ws-stunnel.service
+sleep 1
+echo -e "[ ${green}ok${NC} ] Restarting xray@v2ray-tls "
 systemctl restart xray@v2ray-tls
+sleep 1
+echo -e "[ ${green}ok${NC} ] Restarting xray@v2ray-nontls "
 systemctl restart xray@v2ray-nontls
+sleep 1
+echo -e "[ ${green}ok${NC} ] Restarting xray@vless-tls "
 systemctl restart xray@vless-tls
+sleep 1
+echo -e "[ ${green}ok${NC} ] Restarting xray@vless-nontls "
 systemctl restart xray@vless-nontls
+sleep 1
+echo -e "[ ${green}ok${NC} ] Restarting xray@trojan "
 systemctl restart xray@trojan
 echo -e "[ ${green}ok${NC} ] Restarting shadowsocks-libev "
 /etc/init.d/shadowsocks-libev restart
+sleep 1
+echo -e "[ ${green}ok${NC} ] Restarting shadowsocks-libev "
 systemctl restart shadowsocks-libev
+sleep 1
+echo -e "[ ${green}ok${NC} ] Restarting xl2tpd "
 systemctl restart xl2tpd
+sleep 1
+echo -e "[ ${green}ok${NC} ] Restarting pptpd "
 systemctl restart pptpd
+sleep 1
+echo -e "[ ${green}ok${NC} ] Restarting ipsec "
 systemctl restart ipsec
+sleep 1
+echo -e "[ ${green}ok${NC} ] Restarting accel-ppp "
 systemctl restart accel-ppp
+sleep 1
+echo -e "[ ${green}ok${NC} ] Restarting ws-openvpn "
 systemctl restart ws-openvpn
+sleep 1
+echo -e "[ ${green}ok${NC} ] Restarting wg-quick@wg0 "
 systemctl restart wg-quick@wg0
+sleep 1
+echo -e "[ ${green}ok${NC} ] Restarting ssh-ohp "
 systemctl restart ssh-ohp
+sleep 1
+echo -e "[ ${green}ok${NC} ] Restarting dropbear-ohp "
 systemctl restart dropbear-ohp
+sleep 1
+echo -e "[ ${green}ok${NC} ] Restarting openvpn-ohp "
 systemctl restart openvpn-ohp
+sleep 1
+echo -e "[ ${green}ok${NC} ] Restarting trojan-go "
 systemctl restart trojan-go
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 1000
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 1000
@@ -140,4 +188,4 @@ clear
 echo -e "Restart All Service" | lolcat
 sleep 2
 figlet -f slant SUKSES | lolcat
-status
+running
