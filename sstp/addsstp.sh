@@ -108,14 +108,14 @@ clear
 cat <<EOF
 
 ============================
-SSTP VPN
+       SSTP VPN
 ============================
 IP/Host   : $MYIP
 Domain    : $domain
 Username  : $user
 Password  : $pass
 Port      : $sstp
-Cert      : http://$IP:89/server.crt
+Cert      : http://$MYIP:89/server.crt
 Created   : $hariini
 Expired   : $exp
 ============================
