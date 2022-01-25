@@ -28,7 +28,8 @@ fi
 masaaktif="1"
 exp=$(date -d "$masaaktif days" +"%Y-%m-%d")
 
-# Make Random Username 
+# Make Random Username
+ sstp="$(cat ~/log-install.txt | grep -i SSTP | cut -d: -f2|sed 's/ //g')"
 user=Trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
 pass=123
 
