@@ -131,6 +131,9 @@ sudo hostnamectl set-hostname Setup-Geo-Project
 apt-get install figlet -y > /dev/null
 apt-get install ruby -y > /dev/null
 gem install lolcat
+apt-get install wget -y > /dev/null
+apt-get install toilet -y > /dev/null
+
 clear
 if [ -f "/etc/xray/domain" ]; then
 echo "Script Already Installed"
@@ -189,9 +192,9 @@ echo "2.9" > /home/ver
 echo " "
 echo "Installation has been completed!!"
 echo " "
-echo "=================================-geovpn Project-===========================" | tee -a log-install.txt
+echo "==========-geovpn Project-===========" | tee -a log-install.txt
 echo "" | tee -a log-install.txt
-echo "----------------------------------------------------------------------------" | tee -a log-install.txt
+echo "-------------------------------------" | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "   >>> Service & Port"  | tee -a log-install.txt
 echo "   - OpenSSH                 : 443, 22"  | tee -a log-install.txt
@@ -242,7 +245,7 @@ echo "   - Telegram                : T.me/geovpn"  | tee -a log-install.txt
 echo "   - Instagram               : ~"  | tee -a log-install.txt
 echo "   - Whatsapp                : ~"  | tee -a log-install.txt
 echo "   - Facebook                : ~" | tee -a log-install.txt
-echo "----------------------Script Created By geovpn Project----------------------" | tee -a log-install.txt
+echo "----------Script Created By geovpn Project------------" | tee -a log-install.txt
 echo ""
 echo " Reboot 5 Sec"
 sleep 5
