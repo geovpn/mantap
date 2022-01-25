@@ -131,8 +131,6 @@ sudo hostnamectl set-hostname Setup-Geo-Project
 apt-get install figlet -y > /dev/null
 apt-get install ruby -y > /dev/null
 gem install lolcat
-apt-get install wget -y > /dev/null
-apt-get install toilet -y > /dev/null
 
 clear
 if [ -f "/etc/xray/domain" ]; then
