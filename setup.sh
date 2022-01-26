@@ -1,12 +1,4 @@
 #!/bin/bash
-if [ "${EUID}" -ne 0 ]; then
-		echo "You need to run this script as root"
-		exit 1
-fi
-if [ "$(systemd-detect-virt)" == "openvz" ]; then
-		echo "OpenVZ is not supported"
-		exit 1
-fi
 # Link Hosting Kalian Untuk Ssh Vpn
 geovpn="raw.githubusercontent.com/geovpn/mantap/main/ssh"
 # Link Hosting Kalian Untuk Sstp
@@ -129,14 +121,6 @@ sleep 2
   read
 else
   echo -e "[ ${green}INFO${NC} ] Oke installed"
-fi
-
-ttet=`uname -r`
-ReqPKG="linux-headers-$ttet"
-if ! dpkg -s $ReqPKG  >/dev/null 2>&1; then
-  rm /root/setup.sh >/dev/null 2>&1 
-  exit
-else
   clear
 fi
 
@@ -170,6 +154,8 @@ apt install git curl -y >/dev/null 2>&1
 echo -e "[ ${green}INFO${NC} ] Aight good ... installation file is ready"
 sleep 2
 echo -ne "[ ${green}INFO${NC} ] Check permission : "
+
+PERMISSION
 exit 0
 elif [ "$res" = "Permission Accepted..." ]; then
 green "Permission Accepted!"
