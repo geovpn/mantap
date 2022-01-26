@@ -170,11 +170,23 @@ echo ""
 sleep 1
 echo -e "[ ${green}INFO${NC} ] Checking... "
 sleep 2
-sleep 1
+echo -e "[ ${green}INFO${NC} ] Preparing the install file"
+apt install git curl -y >/dev/null 2>&1
+echo -e "[ ${green}INFO${NC} ] Aight good ... installation file is ready"
+sleep 2
+echo -ne "[ ${green}INFO${NC} ] Check permission : "
 clear
 if [ -f "/etc/xray/domain" ]; then
-echo "Script Already Installed"
+echo ""
+echo -e "[ ${green}INFO${NC} ] Script Already Installed"
+echo -ne "[ ${yell}WARNING${NC} ] Do you want to install again ? (y/n)? "
+read answer
+if [ "$answer" == "${answer#[Yy]}" ] ;then
+rm setup.sh
+sleep 10
 exit 0
+else
+clear
 fi
 mkdir /var/lib/geovpnstore;
 echo "IP=" >> /var/lib/geovpnstore/ipvps.conf
@@ -308,6 +320,5 @@ echo "----------Script Created By geovpn Project------------" | tee -a log-insta
 echo ""
 echo " Reboot 5 Sec"
 sleep 5
-rm -f geo.sh
 rm -f setup.sh
 reboot
