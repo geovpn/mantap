@@ -184,7 +184,7 @@ fi
 
 sleep 3
 
-mkdir -p /var/lib/geovpnstore >/dev/null 2>&1
+mkdir /var/lib/geovpnstore; >/dev/null 2>&1
 echo "IP=" >> /var/lib/geovpnstore/ipvps.conf
 
 x="ok"
@@ -230,7 +230,7 @@ fi
 
 echo ""
 wget -q https://raw.githubusercontent.com/geovpn/perizinan/main/dependencies
-chmod +x dependencies 
+chmod +x dependencies
 screen -S depen ./dependencies
 rm dependencies
 
@@ -283,13 +283,9 @@ read -rp "Input ur domain : " -e pp
 wget -q "https://${geovpn}/cf.sh" && chmod +x cf.sh && ./cf.sh
 fi
 
-#wget -q -O /usr/bin/menu "https://console.cdnaja.io/newmenu.sh" && chmod +x /usr/bin/menu
 wget -q "https://${geovpn}/ssh-vpn.sh" && chmod +x ssh-vpn.sh && screen -S sshvpn ./ssh-vpn.sh
 if [ "xray" = "v2ray" ]; then
 wget -q "https://${geovpnnnnnn}/ins-xray.sh" && chmod +x ins-xray.sh && screen -S ins-xray ./ins-xray.sh
-elif [ "xray" = "xray" ]; then
-#wget -q "https://console.cdnaja.io/xray/ins-xray.sh" && chmod +x ins-xray.sh && screen -S insxray ./ins-xray.sh
-fi
 wget -q "https://${geovpnnnnn}/wg.sh" && chmod +x wg.sh && screen -S wg ./wg.sh
 wget -q "https://${geovpnn}/sstp.sh" && chmod +x sstp.sh && screen -S sstp ./sstp.sh
 wget -q "https://${geovpnnnnnnn}/ipsec.sh" && chmod +x ipsec.sh && screen -S ipsec ./ipsec.sh
