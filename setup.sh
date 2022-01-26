@@ -1,4 +1,12 @@
 #!/bin/bash
+if [ "${EUID}" -ne 0 ]; then
+		echo "You need to run this script as root"
+		exit 1
+fi
+if [ "$(systemd-detect-virt)" == "openvz" ]; then
+		echo "OpenVZ is not supported"
+		exit 1
+fi
 # Link Hosting Kalian Untuk Ssh Vpn
 geovpn="raw.githubusercontent.com/geovpn/mantap/main/ssh"
 # Link Hosting Kalian Untuk Sstp
@@ -96,7 +104,6 @@ echo -e "[ ${green}INFO${NC} ] Checking headers"
 sleep 2
   echo -e "[ ${yell}WARNING${NC} ] Try to install ...."
   echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
-  apt-get --yes install $REQUIRED_PKG
   sleep 1
   echo ""
   sleep 1
@@ -122,33 +129,13 @@ sleep 2
 else
   echo -e "[ ${green}INFO${NC} ] Oke installed"
   clear
-fi
-
-
-secs_to_human() {
     echo "Installation time : $(( ${1} / 3600 )) hours $(( (${1} / 60) % 60 )) minute's $(( ${1} % 60 )) seconds"
 }
 start=$(date +%s)
 ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 sysctl -w net.ipv6.conf.all.disable_ipv6=1 >/dev/null 2>&1
 sysctl -w net.ipv6.conf.default.disable_ipv6=1 >/dev/null 2>&1
-
-coreselect=''
-cat> /root/.profile << END
-# ~/.profile: executed by Bourne-compatible login shells.
-
-if [ "$BASH" ]; then
-  if [ -f ~/.bashrc ]; then
-    . ~/.bashrc
-  fi
-fi
-
-mesg n || true
-clear
-screen -r setup
-END
-chmod 644 /root/.profile
-
+sleep1
 echo -e "[ ${green}INFO${NC} ] Preparing the install file"
 apt install git curl -y >/dev/null 2>&1
 echo -e "[ ${green}INFO${NC} ] Aight good ... installation file is ready"
