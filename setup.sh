@@ -260,7 +260,7 @@ systemctl enable autosett
 wget -O /etc/set.sh "https://${geovpn}/set.sh"
 chmod +x /etc/set.sh
 history -c
-serverV=$( curl -sS https://raw.githubusercontent.com/scvps/perizinan/main/versi  )
+serverV=$( curl -sS https://raw.githubusercontent.com/scvps/perizinan/main/main/versi  )
 echo $serverV > /opt/.ver
 aureb=$(cat /home/re_otm)
 b=11
