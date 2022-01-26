@@ -177,53 +177,54 @@ sleep 2
 echo -ne "[ ${green}INFO${NC} ] Check permission : "
 clear
 if [ -f "/etc/xray/domain" ]; then
+clear
 echo -e "[ ${green}INFO${NC} ] Script Already Installed"
 exit 0
 fi
 mkdir /var/lib/geovpnstore;
 echo "IP=" >> /var/lib/geovpnstore/ipvps.conf
-echo -e "[ ${tyblue}NOTES${NC} ] Install Cloudflare.. "
-sleep 1
+echo -e "[ ${tyblue}PROSES${NC} ] Install Cloudflare.. "
+sleep 2
 wget https://${geovpn}/cf.sh && chmod +x cf.sh && ./cf.sh
 clear
-echo -e "[ ${tyblue}NOTES${NC} ] Install SSH Ovpn.. "
-sleep 1
+echo -e "[ ${tyblue}PROSES${NC} ] Install SSH Ovpn.. "
+sleep 2
 wget https://${geovpn}/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
 clear
-echo -e "[ ${tyblue}NOTES${NC} ] Install SSTP.. "
-sleep 1
+echo -e "[ ${tyblue}PROSES${NC} ] Install SSTP.. "
+sleep 2
 wget https://${geovpnn}/sstp.sh && chmod +x sstp.sh && screen -S sstp ./sstp.sh
 clear
-echo -e "[ ${tyblue}NOTES${NC} ] Install ShadowsocksR.. "
-sleep 1
+echo -e "[ ${tyblue}PROSES${NC} ] Install ShadowsocksR.. "
+sleep 2
 wget https://${geovpnnn}/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
 clear
-echo -e "[ ${tyblue}NOTES${NC} ] Install Shadowsocks.. "
-sleep 1
+echo -e "[ ${tyblue}PROSES${NC} ] Install Shadowsocks.. "
+sleep 2
 wget https://${geovpnnnn}/sodosok.sh && chmod +x sodosok.sh && screen -S ss ./sodosok.sh
 clear
-echo -e "[ ${tyblue}NOTES${NC} ] Install Wireguard.. "
-sleep 1
+echo -e "[ ${tyblue}PROSES${NC} ] Install Wireguard.. "
+sleep 2
 wget https://${geovpnnnnn}/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
 clear
-echo -e "[ ${tyblue}NOTES${NC} ] Install Xray.. "
-sleep 1
+echo -e "[ ${tyblue}PROSES${NC} ] Install Xray.. "
+sleep 2
 wget https://${geovpnnnnnn}/ins-xray.sh && chmod +x ins-xray.sh && screen -S xray ./ins-xray.sh
 clear
-echo -e "[ ${tyblue}NOTES${NC} ] Install L2TP vpn.. "
-sleep 1
+echo -e "[ ${tyblue}PROSES${NC} ] Install L2TP vpn.. "
+sleep 2
 wget https://${geovpnnnnnnn}/ipsec.sh && chmod +x ipsec.sh && screen -S ipsec ./ipsec.sh
 clear
-echo -e "[ ${tyblue}NOTES${NC} ] Install set-br.. "
-sleep 1
+echo -e "[ ${tyblue}PROSES${NC} ] Install set-br.. "
+sleep 2
 wget https://${geovpnnnnnnnn}/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 clear
-echo -e "[ ${tyblue}NOTES${NC} ] Install Websocket Python.. "
-sleep 1
+echo -e "[ ${tyblue}PROSES${NC} ] Install Websocket Python.. "
+sleep 2
 wget https://${geovpnnnnnnnnn}/edu.sh && chmod +x edu.sh && ./edu.sh
 clear
-echo -e "[ ${tyblue}NOTES${NC} ] Install OHP.. "
-sleep 1
+echo -e "[ ${tyblue}PROSES${NC} ] Install OHP.. "
+sleep 2
 wget https://${geovpnnnnnnnnnn}/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 
 rm -f /root/ssh-vpn.sh
@@ -239,7 +240,7 @@ rm -f /root/ohp.sh
 cat <<EOF> /etc/systemd/system/autosett.service
 [Unit]
 Description=autosetting
-Documentation=https://t.me/geovpn
+Documentation=https://t.me/sampiiiiu
 
 [Service]
 Type=oneshot
@@ -305,12 +306,12 @@ echo "   - Full Orders For Various Services" | tee -a log-install.txt
 echo "   - White Label" | tee -a log-install.txt
 echo "   - Installation Log --> /root/log-install.txt"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "   - Dev/Main                : Horas Marolop Amsal Siregar"  | tee -a log-install.txt
-echo "   - Recode                  : geovpn" | tee -a log-install.txt
-echo "   - Telegram                : T.me/geovpn"  | tee -a log-install.txt
-echo "   - Instagram               : ~"  | tee -a log-install.txt
-echo "   - Whatsapp                : ~"  | tee -a log-install.txt
-echo "   - Facebook                : ~" | tee -a log-install.txt
+echo "   - Dev/Main                : Muhammad Amin Anak Nusa Tenggara Barat"  | tee -a log-install.txt
+echo "   - Recode                  : Muhammad Amin" | tee -a log-install.txt
+echo "   - Telegram                : T.me/sampiiiiu"  | tee -a log-install.txt
+echo "   - Instagram               : @geo_gabuter"  | tee -a log-install.txt
+echo "   - Whatsapp                : 082339191527"  | tee -a log-install.txt
+echo "   - Facebook                : Muhammad Amin" | tee -a log-install.txt
 echo "----------Script Created By geovpn Project------------" | tee -a log-install.txt
 echo ""
 echo " Reboot 5 Sec"
