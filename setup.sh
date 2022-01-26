@@ -177,7 +177,6 @@ sleep 2
 echo -ne "[ ${green}INFO${NC} ] Check permission : "
 clear
 if [ -f "/etc/xray/domain" ]; then
-echo ""
 echo -e "[ ${green}INFO${NC} ] Script Already Installed"
 exit 0
 fi
