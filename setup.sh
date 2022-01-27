@@ -9,6 +9,8 @@ if [ "$(systemd-detect-virt)" == "openvz" ]; then
 fi
 # My Telegram : https://t.me/sampiiiiu
 # ==========================================
+apt install git curl -y >/dev/null 2>&1
+apt install curl -y >/dev/null 2>&1
 # Color
 RED='\033[0;31m'
 NC='\033[0m'
