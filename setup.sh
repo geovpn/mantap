@@ -11,6 +11,8 @@ fi
 # ==========================================
 apt install git curl -y >/dev/null 2>&1
 apt install curl -y >/dev/null 2>&1
+apt install lolcat -y >/dev/null 2>&1
+gem install lolcat >/dev/null 2>&1
 # Color
 RED='\033[0;31m'
 NC='\033[0m'
