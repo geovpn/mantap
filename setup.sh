@@ -190,48 +190,81 @@ mkdir /var/lib/geovpnstore;
 echo "IP=" >> /var/lib/geovpnstore/ipvps.conf
 echo -e "[ ${tyblue}PROSES${NC} ] Install Cloudflare.. "
 sleep 4
-wget https://${geovpn}/cf.sh && chmod +x cf.sh && ./cf.sh
+wget https://${geovpn}/cf.sh && chmod +x cf.sh && ./cf.sh > /dev/null 2>&1
+yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
+yellow "Cloudflare successfully installed..."
+sleep 3
 clear
-echo -e "[ ${tyblue}PROSES${NC} ] Install SSH Ovpn.. "
+echo -e "[ ${tyblue}PROSES${NC} ] Install SSH OVPN.. "
 sleep 4
-wget https://${geovpn}/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
+wget https://${geovpn}/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh > /dev/null 2>&1
+yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
+yellow "SSH OVPN successfully installed..."
+sleep 3
 clear
 echo -e "[ ${tyblue}PROSES${NC} ] Install SSTP.. "
 sleep 4
-wget https://${geovpnn}/sstp.sh && chmod +x sstp.sh && screen -S sstp ./sstp.sh
+wget https://${geovpnn}/sstp.sh && chmod +x sstp.sh && screen -S sstp ./sstp.sh > /dev/null 2>&1
+yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
+yellow "SSTP successfully installed..."
+sleep 3
 clear
 echo -e "[ ${tyblue}PROSES${NC} ] Install ShadowsocksR.. "
 sleep 4
-wget https://${geovpnnn}/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
+wget https://${geovpnnn}/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh > /dev/null 2>&1
+yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
+yellow "ShadowsocksR successfully installed..."
+sleep 3
 clear
 echo -e "[ ${tyblue}PROSES${NC} ] Install Shadowsocks.. "
 sleep 4
-wget https://${geovpnnnn}/sodosok.sh && chmod +x sodosok.sh && screen -S ss ./sodosok.sh
+wget https://${geovpnnnn}/sodosok.sh && chmod +x sodosok.sh && screen -S ss ./sodosok.sh > /dev/null 2>&1
+yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
+yellow "Shadowsocks successfully installed..."
+sleep 3
 clear
 echo -e "[ ${tyblue}PROSES${NC} ] Install Wireguard.. "
 sleep 4
-wget https://${geovpnnnnn}/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
+wget https://${geovpnnnnn}/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh > /dev/null 2>&1
+yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
+yellow "Wireguard successfully installed..."
+sleep 3
 clear
 echo -e "[ ${tyblue}PROSES${NC} ] Install Xray.. "
 sleep 4
-wget https://${geovpnnnnnn}/ins-xray.sh && chmod +x ins-xray.sh && screen -S xray ./ins-xray.sh
+wget https://${geovpnnnnnn}/ins-xray.sh && chmod +x ins-xray.sh && screen -S xray ./ins-xray.sh > /dev/null 2>&1
+yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
+yellow "Xray successfully installed..."
+sleep 3
 clear
 echo -e "[ ${tyblue}PROSES${NC} ] Install L2TP vpn.. "
 sleep 4
-wget https://${geovpnnnnnnn}/ipsec.sh && chmod +x ipsec.sh && screen -S ipsec ./ipsec.sh
+wget https://${geovpnnnnnnn}/ipsec.sh && chmod +x ipsec.sh && screen -S ipsec ./ipsec.sh > /dev/null 2>&1
+yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
+yellow "L2TP successfully installed..."
+sleep 3
 clear
 echo -e "[ ${tyblue}PROSES${NC} ] Install set-br.. "
 sleep 4
-wget https://${geovpnnnnnnnn}/set-br.sh && chmod +x set-br.sh && ./set-br.sh
+wget https://${geovpnnnnnnnn}/set-br.sh && chmod +x set-br.sh && ./set-br.sh > /dev/null 2>&1
+yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
+yellow "set-br successfully installed..."
+sleep 3
 clear
-echo -e "[ ${tyblue}PROSES${NC} ] Install Websocket Python.. "
+echo -e "[ ${tyblue}PROSES${NC} ] Install Websocket CDN.. "
 sleep 4
-wget https://${geovpnnnnnnnnn}/edu.sh && chmod +x edu.sh && ./edu.sh
+wget https://${geovpnnnnnnnnn}/edu.sh && chmod +x edu.sh && ./edu.sh > /dev/null 2>&1
+yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
+yellow "Websocket CDN successfully installed..."
+sleep 3
 clear
 echo -e "[ ${tyblue}PROSES${NC} ] Install OHP.. "
 sleep 4
-wget https://${geovpnnnnnnnnnn}/ohp.sh && chmod +x ohp.sh && ./ohp.sh
-
+wget https://${geovpnnnnnnnnnn}/ohp.sh && chmod +x ohp.sh && ./ohp.sh > /dev/null 2>&1
+yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
+yellow "OHP successfully installed..."
+sleep 3
+clear
 rm -f /root/ssh-vpn.sh
 rm -f /root/sstp.sh
 rm -f /root/wg.sh
