@@ -293,7 +293,6 @@ systemctl enable autosett
 wget -O /etc/set.sh "https://${geovpn}/set.sh"
 chmod +x /etc/set.sh
 history -c
-serverV=$( curl -sS https://raw.githubusercontent.com/geovpn/perizinan/main/main/versi  )
 echo "2.9" > /home/ver
 echo " "
 echo "Installation has been completed!!"
