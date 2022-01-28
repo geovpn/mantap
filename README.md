@@ -9,4 +9,4 @@ sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.di
 
 - [x] [WHATSAPP](http://wa.me/+6282339191527)
 - [x] [TELEGRAM](http://t.me/sampiiiiu)
-- [x] [TESTIMONI](https://t.me/testikuy_mang
+- [x] [TESTIMONI](https://t.me/testikuy_mang)
