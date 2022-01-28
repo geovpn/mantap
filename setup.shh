@@ -113,9 +113,12 @@ rm -f setup.sh
 cd
 apt-get update --allow-releaseinfo-change -y > /dev/null
 
-apt-get update -y > /dev/null 
-apt-get upgrade -y > /dev/null
+apt-get update -y > /dev/null 2>&1
+apt-get upgrade -y > /dev/null 2>&1
 #install figlet & lolcat
+apt-get install figlet -y > /dev/null 2>&1
+apt-get install ruby -y > /dev/null 2>&1
+gem install lolcat > /dev/null 2>&1
 clear
 MYIP=$(wget -qO- https://icanhazip.com);
 host=$(hostname);
@@ -128,9 +131,6 @@ END
 apt-get install dbus -y > /dev/null
 sudo hostnamectl set-hostname Setup-Geo-Project
 
-apt-get install figlet -y > /dev/null
-apt-get install ruby -y > /dev/null
-gem install lolcat
 clear
 if [ -f "/etc/xray/domain" ]; then
 echo "Script Already Installed"
@@ -347,7 +347,19 @@ echo "   - Whatsapp                : 082339191527"  | tee -a log-install.txt
 echo "   - Facebook                : Muhammad Amin" | tee -a log-install.txt
 echo "----------Script Created By geovpn Project------------" | tee -a log-install.txt
 echo ""
-echo " Reboot 5 Sec"
-sleep 5
-rm -f setup.sh
+systemctl restart ssrmu > /dev/null 2>&1
+echo -ne "[ ${yell}WARNING${NC} ] Do you want to reboot now ? (y/n)? "
+read answer
+if [ "$answer" == "${answer#[Yy]}" ] ;then
+exit 0
+else
 reboot
+fi
+systemctl restart ssrmu > /dev/null 2>&1
+echo -ne "[ ${yell}WARNING${NC} ] Do you want to reboot now ? (y/n)? "
+read answer
+if [ "$answer" == "${answer#[Yy]}" ] ;then
+exit 0
+else
+reboot
+fi
