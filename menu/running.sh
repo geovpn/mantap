@@ -86,18 +86,6 @@ chck_b(){
 # VPS Information
 Checkstart1=$(ip route | grep default | cut -d ' ' -f 3 | head -n 1);
 if [[ $Checkstart1 == "venet0" ]]; then 
-    # Getting
-MYIP=$(wget -qO- ipinfo.io/ip);
-echo "Checking VPS"
-IZIN=$( curl https://raw.githubusercontent.com/geovpn/perizinan/main/ip | grep $MYIP )
-if [ $MYIP = $IZIN ]; then
-echo -e "${NC}${GREEN}Permission Accepted...${NC}"
-else
-echo -e "${NC}${RED}Permission Denied!${NC}";
-echo -e "${NC}${LIGHT}Please Contact Admin!!"
-echo -e "${NC}${LIGHT}Telegram : https://t.me/sampiiiiu"
-exit 0
-fi
 clear
 	  lan_net="venet0"
     typevps="OpenVZ"
@@ -193,205 +181,205 @@ clear
 
 # STATUS SERVICE Shadowsocks HTTPS
 if [[ $sst_status == "running" ]]; then
-  status_sst="${GREEN} Service Is Running ${NC}( Aktif )"
+  status_sst="${GREEN} Service Is Running ${NC}( No Error )"
 else
-  status_sst="${RED} Service Is Not Running ${NC}( Not Aktif )"
+  status_sst="${RED} Service Is Not Running ${NC}  ( Error )"
 fi
 
 # STATUS SERVICE Shadowsocks HTTP
 if [[ $ssh_status == "running" ]]; then 
-   status_ssh="${GREEN} Service Is Running ${NC}( Aktif )"
+   status_ssh="${GREEN} Service Is Running ${NC}( No Error )"
 else
-   status_ssh="${RED} Service Is Not Running ${NC}( Not Aktif )"
+   status_ssh="${RED} Service Is Not Running ${NC}  ( Error )"
 fi
 
 # STATUS SERVICE OPENVPN
 if [[ $oovpn == "active" ]]; then
-  status_openvpn="${GREEN} Service Is Running ${NC}( Aktif )"
+  status_openvpn="${GREEN} Service Is Running ${NC}( No Error )"
 else
-  status_openvpn="${RED} Service Is Not Running ${NC}( Not Aktif )"
+  status_openvpn="${RED} Service Is Not Running ${NC}  ( Error )"
 fi
 
 # STATUS SERVICE  SSH 
 if [[ $ssh_service == "running" ]]; then 
-   status_ssh="${GREEN} Service Is Running ${NC}( Aktif )"
+   status_ssh="${GREEN} Service Is Running ${NC}( No Error )"
 else
-   status_ssh="${RED} Service Is Not Running ${NC}( Not Aktif )"
+   status_ssh="${RED} Service Is Not Running ${NC}  ( Error )"
 fi
 
 # STATUS SERVICE  SQUID 
 if [[ $squid_service == "running" ]]; then 
-   status_squid="${GREEN} Service Is Running ${NC}( Aktif )"
+   status_squid="${GREEN} Service Is Running ${NC}( No Error )"
 else
-   status_squid="${RED} Service Is Not Running ${NC}( Not Aktif )"
+   status_squid="${RED} Service Is Not Running ${NC}  ( Error )"
 fi
 
 # STATUS SERVICE  VNSTAT 
 if [[ $vnstat_service == "running" ]]; then 
-   status_vnstat="${GREEN} Service Is Running ${NC}( Aktif )"
+   status_vnstat="${GREEN} Service Is Running ${NC}( No Error )"
 else
-   status_vnstat="${RED} Service Is Not Running ${NC}( Not Aktif )"
+   status_vnstat="${RED} Service Is Not Running ${NC}  ( Error )"
 fi
 
 # STATUS SERVICE  CRONS 
 if [[ $cron_service == "running" ]]; then 
-   status_cron="${GREEN} Service Is Running ${NC}( Aktif )"
+   status_cron="${GREEN} Service Is Running ${NC}( No Error )"
 else
-   status_cron="${RED} Service Is Not Running ${NC}( Not Aktif )"
+   status_cron="${RED} Service Is Not Running ${NC}  ( Error )"
 fi
 
 # STATUS SERVICE  FAIL2BAN 
 if [[ $fail2ban_service == "running" ]]; then 
-   status_fail2ban="${GREEN} Service Is Running ${NC}( Aktif )"
+   status_fail2ban="${GREEN} Service Is Running ${NC}( No Error )"
 else
-   status_fail2ban="${RED} Service Is Not Running ${NC}( Not Aktif )"
+   status_fail2ban="${RED} Service Is Not Running ${NC}  ( Error )"
 fi
 
 # STATUS SERVICE  TLS 
 if [[ $tls_v2ray_status == "running" ]]; then 
-   status_tls_v2ray="${GREEN} Service Is Running${NC} ( Aktif )"
+   status_tls_v2ray="${GREEN} Service Is Running${NC} ( No Error )"
 else
-   status_tls_v2ray="${RED} Service Is Not Running${NC} ( Not Aktif )"
+   status_tls_v2ray="${RED} Service Is Not Running${NC}   ( Error )"
 fi
 
 # STATUS SERVICE NON TLS V2RAY
 if [[ $nontls_v2ray_status == "running" ]]; then 
-   status_nontls_v2ray="${GREEN} Service Is Running ${NC}( Aktif )${NC}"
+   status_nontls_v2ray="${GREEN} Service Is Running ${NC}( No Error )${NC}"
 else
-   status_nontls_v2ray="${RED} Service Is Not Running ${NC}( Not Aktif )${NC}"
+   status_nontls_v2ray="${RED} Service Is Not Running ${NC}  ( Error )${NC}"
 fi
 
 # STATUS SERVICE VLESS HTTPS
 if [[ $vless_tls_v2ray_status == "running" ]]; then
-  status_tls_vless="${GREEN} Service Is Running${NC} ( Aktif )"
+  status_tls_vless="${GREEN} Service Is Running${NC} ( No Error )"
 else
-  status_tls_vless="${RED} Service Is Not Running ${NC}( Not Aktif )${NC}"
+  status_tls_vless="${RED} Service Is Not Running ${NC}  ( Error )${NC}"
 fi
 
 # STATUS SERVICE VLESS HTTP
 if [[ $vless_nontls_v2ray_status == "running" ]]; then
-  status_nontls_vless="${GREEN} Service Is Running${NC} ( Aktif )"
+  status_nontls_vless="${GREEN} Service Is Running${NC} ( No Error )"
 else
-  status_nontls_vless="${RED} Service Is Not Running ${NC}( Not Aktif )${NC}"
+  status_nontls_vless="${RED} Service Is Not Running ${NC}  ( Error )${NC}"
 fi
 
 # SHADOWSOCKSR STATUS
 if [[ $ssr_status == "running" ]] ; then
-  status_ssr="${GREEN} Service Is Running${NC} ( Aktif )${NC}"
+  status_ssr="${GREEN} Service Is Running${NC} ( No Error )${NC}"
 else
-  status_ssr="${RED} Service Is Not Running ${NC}( Not Aktif )${NC}"
+  status_ssr="${RED} Service Is Not Running ${NC}  ( Error )${NC}"
 fi
 
 # SODOSOK
 if [[ $status_text == "active" ]] ; then
-  status_sodosok="${GREEN} Service Is Running${NC} ( Aktif )${NC}"
+  status_sodosok="${GREEN} Service Is Running${NC} ( No Error )${NC}"
 else
-  status_sodosok="${RED} Service Is Not Running ${NC}( Not Aktif )${NC}"
+  status_sodosok="${RED} Service Is Not Running ${NC}  ( Error )${NC}"
 fi
 
 # STATUS SERVICE TROJAN
 if [[ $trojan_server == "running" ]]; then 
-   status_virus_trojan="${GREEN} Service Is Running ${NC}( Aktif )${NC}"
+   status_virus_trojan="${GREEN} Service Is Running ${NC}( No Error )${NC}"
 else
-   status_virus_trojan="${RED} Service Is Not Running ${NC}( Not Aktif )${NC}"
+   status_virus_trojan="${RED} Service Is Not Running ${NC}  ( Error )${NC}"
 fi
 
 # STATUS SERVICE WIREGUARD
 if [[ $swg == "active" ]]; then
-  status_wg="${GREEN} Service Is Running ${NC}( Aktif )${NC}"
+  status_wg="${GREEN} Service Is Running ${NC}( No Error )${NC}"
 else
-  status_wg="${RED} Service Is Not Running ${NC}( Not Aktif )${NC}"
+  status_wg="${RED} Service Is Not Running ${NC}  ( Error )${NC}"
 fi
 
 # Status Service Trojan GO
 if [[ $strgo == "active" ]]; then
-  status_trgo="${GREEN} Service Is Running ${NC}( Aktif )${NC}"
+  status_trgo="${GREEN} Service Is Running ${NC}( No Error )${NC}"
 else
-  status_trgo="${RED} Service Is Not Running ${NC}( Not Aktif )${NC}"
+  status_trgo="${RED} Service Is Not Running ${NC}  ( Error )${NC}"
 fi
 
 # STATUS SERVICE L2TP
 if [[ $l2tp_status == "running" ]]; then 
-   status_l2tp="${GREEN} Service Is Running${NC} ( Aktif )${NC}"
+   status_l2tp="${GREEN} Service Is Running${NC} ( No Error )${NC}"
 else
-   status_l2tp="${RED} Service Is Not Running${NC}( Not Aktif )${NC}"
+   status_l2tp="${RED} Service Is Not Running${NC}  ( Error )${NC}"
 fi
 
 # STATUS SERVICE DROPBEAR
 if [[ $dropbear_status == "running" ]]; then 
-   status_beruangjatuh="${GREEN} Service Is Running${NC} ( Aktif )${NC}"
+   status_beruangjatuh="${GREEN} Service Is Running${NC} ( No Error )${NC}"
 else
-   status_beruangjatuh="${RED} Service Is Not Running ${NC}( Not Aktif )${NC}"
+   status_beruangjatuh="${RED} Service Is Not Running ${NC}  ( Error )${NC}"
 fi
 
 # STATUS SERVICE STUNNEL
 if [[ $stunnel_service == "running" ]]; then 
-   status_stunnel="${GREEN} Service Is Running ${NC}( Aktif )"
+   status_stunnel="${GREEN} Service Is Running ${NC}( No Error )"
 else
-   status_stunnel="${RED} Service Is Not Running ${NC}( Not Aktif )}"
+   status_stunnel="${RED} Service Is Not Running ${NC}  ( Error )}"
 fi
 
 # STATUS SERVICE SSTP
 if [[ $sstp_service == "running" ]]; then 
-   status_sstp="${GREEN} Service Is Running ${NC}( Aktif )"
+   status_sstp="${GREEN} Service Is Running ${NC}( No Error )"
 else
-   status_sstp="${RED} Service Is Not Running ${NC}( Not Aktif )"
+   status_sstp="${RED} Service Is Not Running ${NC}  ( Error )"
 fi
 
 # STATUS SERVICE WEBSOCKET TLS
 if [[ $wstls == "running" ]]; then 
-   swstls="${GREEN} Service Is Running ${NC}( Aktif )${NC}"
+   swstls="${GREEN} Service Is Running ${NC}( No Error )${NC}"
 else
-   swstls="${RED} Service Is Not Running ${NC}( Not Aktif )${NC}"
+   swstls="${RED} Service Is Not Running ${NC}  ( Error )${NC}"
 fi
 
 # STATUS SERVICE WEBSOCKET DROPBEAR
 if [[ $wsdrop == "running" ]]; then 
-   swsdrop="${GREEN} Service Is Running ${NC}( Aktif )${NC}"
+   swsdrop="${GREEN} Service Is Running ${NC}( No Error )${NC}"
 else
-   swsdrop="${RED} Service Is Not Running ${NC}( Not Aktif )${NC}"
+   swsdrop="${RED} Service Is Not Running ${NC}  ( Error )${NC}"
 fi
 
 # STATUS SERVICE WEBSOCKET OPEN OVPN
 if [[ $wsovpn == "running" ]]; then 
-   swsovpn="${GREEN} Service Is Running ${NC}( Aktif )${NC}"
+   swsovpn="${GREEN} Service Is Running ${NC}( No Error )${NC}"
 else
-   swsovpn="${RED} Service Is Not Running ${NC}( Not Aktif )${NC}"
+   swsovpn="${RED} Service Is Not Running ${NC}  ( Error )${NC}"
 fi
 
 # STATUS SERVICE SSLH / SSH
 if [[ $osslh == "running" ]]; then 
-   sosslh="${GREEN} Service Is Running ${NC}( Aktif )${NC}"
+   sosslh="${GREEN} Service Is Running ${NC}( No Error )${NC}"
 else
-   sosslh="${RED} Service Is Not Running ${NC}( Not Aktif )${NC}"
+   sosslh="${RED} Service Is Not Running ${NC}  ( Error )${NC}"
 fi
 
 # STATUS OHP DROPBEAR
 if [[ $ohp == "running" ]]; then 
-   sohp="${GREEN} Service Is Running ${NC}( Aktif )${NC}"
+   sohp="${GREEN} Service Is Running ${NC}( No Error )${NC}"
 else
-   sohp="${RED} Service Is Not Running ${NC}( Not Aktif )${NC}"
+   sohp="${RED} Service Is Not Running ${NC}  ( Error )${NC}"
 fi
 
 # STATUS OHP OpenVPN
 if [[ $ohq == "running" ]]; then 
-   sohq="${GREEN} Service Is Running ${NC}( Aktif )${NC}"
+   sohq="${GREEN} Service Is Running ${NC}( No Error )${NC}"
 else
-   sohq="${RED} Service Is Not Running ${NC}( Not Aktif )${NC}"
+   sohq="${RED} Service Is Not Running ${NC}  ( Error )${NC}"
 fi
 
 # STATUS OHP SSH
 if [[ $ohr == "running" ]]; then 
-   sohr="${GREEN} Service Is Running ${NC}( Aktif )${NC}"
+   sohr="${GREEN} Service Is Running ${NC}( No Error )${NC}"
 else
-   sohr="${RED} Service Is Not Running ${NC}( Not Aktif )${NC}"
+   sohr="${RED} Service Is Not Running ${NC}  ( Error )${NC}"
 fi
 
 # STATUS SERVICE WEBSOCKET OPENSSH
 if [[ $wsopen == "running" ]]; then 
-   swsopen="${GREEN} Service Is Running ${NC}( Aktif )${NC}"
+   swsopen="${GREEN} Service Is Running ${NC}( No Error )${NC}" 
 else
-   swsopen="${RED} Service Is Not Running ${NC}( Not Aktif )${NC}"
+   swsopen="${RED} Service Is Not Running ${NC}  ( Error )${NC}"
 fi
 
 # RAM USAGE
@@ -446,12 +434,10 @@ tipeos2=$(uname -m)
 
 # GETTING DOMAIN NAME
 Domen="$(cat /etc/xray/domain)"
-
-# ECHOING RESULT
 echo -e ""
-echo -e "IN HERE IS YOUR VPS INFORMATION : " | lolcat 
-echo "----------------------------------------------------------------" | lolcat 
-echo "Operating System Information :" | lolcat 
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\E[44;1;39m                  ⇱ Sytem Information ⇲                  \E[0m"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Hostname    : $HOSTNAME"
 echo -e "OS Name     : $Tipe"
 echo -e "Processor   : $tipeprosesor"
@@ -459,43 +445,44 @@ echo -e "Proc Core   : $totalcore"
 echo -e "Virtual     : $typevps"
 echo -e "Cpu Usage   : $cpu_usage"
 echo -e "Total RAM   : ${totalram}MB"
-echo -e "Avaible     : ${MEMORY}MB"
 echo -e "Public IP   : $MYIP"
 echo -e "Domain      : $Domen"
-echo -e "ISP Name    : $NAMAISP"
-echo -e "Region      : $REGION "
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\E[44;1;39m               ⇱ Subscription Information ⇲              \E[0m"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Client Name : $Name"
 echo -e "Exp Script  : $Exp"
 echo -e "Version     : Latest Version"
-echo "----------------------------------------------------------------" | lolcat 
-echo "SYSTEM STATUS INFORMATION :" | lolcat 
-echo -e "SSH / Tun               : $status_ssh"
-echo -e "OpenVPN                 : $status_openvpn"
-echo -e "Dropbear                : $status_beruangjatuh"
-echo -e "Stunnel                 : $status_stunnel"
-echo -e "Squid                   : $status_squid"
-echo -e "Fail2Ban                : $status_fail2ban"
-echo -e "Crons                   : $status_cron"
-echo -e "Vnstat                  : $status_vnstat"
-echo -e "L2TP                    : $status_l2tp"
-echo -e "SSTP                    : $status_sstp"
-echo -e "V2Ray TLS               : $status_tls_v2ray"
-echo -e "V2Ray HTTP              : $status_nontls_v2ray"
-echo -e "Vless TLS               : $status_tls_vless"
-echo -e "Vless HTTP              : $status_nontls_vless"
-echo -e "SSR                     : $status_ssr"
-echo -e "Shadowsocks  HTTPS      : $status_sst"
-echo -e "Shadowsocks  HTTP       : $status_ssh"
-echo -e "Trojan                  : $status_virus_trojan"
-echo -e "Trojan GO               : $status_trgo"
-echo -e "Wireguard               : $status_wg"
-echo -e "Websocket TLS           : $swstls"
-echo -e "Websocket Dropbear      : $swsdrop"
-echo -e "Websocket Ovpn          : $swsovpn"
-echo -e "Websocket OpenSSH       : $swsopen"
-echo -e "OHP Dropbear            : $sohp"
-echo -e "OHP OpenVPN             : $sohq"
-echo -e "OHP SSH                 : $sohr"
-echo -e "SSL / SSH Multiplexer   : $sosslh"
-echo "----------------------------------------------------------------" | lolcat 
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\E[44;1;39m                 ⇱ Service Information ⇲                 \E[0m"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "SSH / Tun              : $status_ssh"
+echo -e "OpenVPN                : $status_openvpn"
+echo -e "Dropbear               : $status_beruangjatuh"
+echo -e "Stunnel                : $status_stunnel"
+echo -e "Squid                  : $status_squid"
+echo -e "Fail2Ban               : $status_fail2ban"
+echo -e "Crons                  : $status_cron"
+echo -e "Vnstat                 : $status_vnstat"
+echo -e "L2TP                   : $status_l2tp"
+echo -e "SSTP                   : $status_sstp"
+echo -e "V2Ray TLS              : $status_tls_v2ray"
+echo -e "V2Ray HTTP             : $status_nontls_v2ray"
+echo -e "Vless TLS              : $status_tls_vless"
+echo -e "Vless HTTP             : $status_nontls_vless"
+echo -e "SSR                    : $status_ssr"
+echo -e "Shadowsocks  HTTPS     : $status_sst"
+echo -e "Shadowsocks  HTTP      : $status_ssh"
+echo -e "Trojan                 : $status_virus_trojan"
+echo -e "Trojan GO              : $status_trgo"
+echo -e "Wireguard              : $status_wg"
+echo -e "Websocket TLS          : $swstls"
+echo -e "Websocket Dropbear     : $swsdrop"
+echo -e "Websocket Ovpn         : $swsovpn"
+echo -e "Websocket OpenSSH      : $swsopen"
+echo -e "OHP Dropbear           : $sohp"
+echo -e "OHP OpenVPN            : $sohq"
+echo -e "OHP SSH                : $sohr"
+echo -e "SSL / SSH Multiplexer  : $sosslh"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
