@@ -7,12 +7,8 @@ if [ "$(systemd-detect-virt)" == "openvz" ]; then
 		echo "OpenVZ is not supported"
 		exit 1
 fi
-# My Telegram : https://t.me/sampiiiiu
+# My Telegram : https://t.me/geovpn
 # ==========================================
-apt install git curl -y >/dev/null 2>&1
-apt install curl -y >/dev/null 2>&1
-apt install lolcat -y >/dev/null 2>&1
-gem install lolcat >/dev/null 2>&1
 # Color
 RED='\033[0;31m'
 NC='\033[0m'
@@ -22,17 +18,6 @@ BLUE='\033[0;34m'
 PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
-clear
-red='\e[1;31m'
-green='\e[0;32m'
-yell='\e[1;33m'
-tyblue='\e[1;36m'
-NC='\e[0m'
-purple() { echo -e "\\033[35;1m${*}\\033[0m"; }
-tyblue() { echo -e "\\033[36;1m${*}\\033[0m"; }
-yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
-green() { echo -e "\\033[32;1m${*}\\033[0m"; }
-red() { echo -e "\\033[31;1m${*}\\033[0m"; }
 # ==========================================
 # Link Hosting Kalian Untuk Ssh Vpn
 geovpn="raw.githubusercontent.com/geovpn/mantap/main/ssh"
@@ -147,47 +132,8 @@ apt-get install figlet -y > /dev/null
 apt-get install ruby -y > /dev/null
 gem install lolcat
 clear
-cd
-red='\e[1;31m'
-green='\e[0;32m'
-yell='\e[1;33m'
-NC='\e[0m'
-curl -sS https://raw.githubusercontent.com/geovpn/perizinan/main/ascii-home
-echo "Setting UP"
-echo "Progress..."
-sleep 3
-echo ""
-green() { echo -e "\\033[32;1m${*}\\033[0m"; }
-red() { echo -e "\\033[31;1m${*}\\033[0m"; }
-PERMISSION
-if [ "$res" = "Permission Accepted..." ]; then
-green "Permission Accepted.."
-else
-red "Permission Denied!"
-exit 0
-fi
-sleep 3
-echo -e "
-"
-date
-echo ""
-sleep 1
-echo -e "[ ${green}INFO${NC} ] Checking... "
-sleep 2
-echo -e "[ ${green}INFO${NC} ] Preparing the install file"
-apt install git curl -y >/dev/null 2>&1
-echo -e "[ ${green}INFO${NC} ] Aight good ... installation file is ready"
-sleep 2
-echo -ne "[ ${green}INFO${NC} ] Check permission : "
-echo ""
-wget -q https://raw.githubusercontent.com/geovpn/perizinan/main/dependencies
-chmod +x dependencies 
-screen -S depen ./dependencies
-rm dependencies
-clear
 if [ -f "/etc/xray/domain" ]; then
-clear
-echo -e "[ ${green}INFO${NC} ] Script Already Installed"
+echo "Script Already Installed"
 exit 0
 fi
 mkdir /var/lib/geovpnstore;
