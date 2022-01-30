@@ -53,32 +53,24 @@ echo -e "### $ssr_user $exp" >> /usr/local/shadowsocksr/akun.conf
 tmp1=$(echo -n "${ssr_password}" | base64 -w0 | sed 's/=//g;s/\//_/g;s/+/-/g')
 SSRobfs=$(echo ${ssr_obfs} | sed 's/_compatible//g')
 tmp2=$(echo -n "$MYIP:${ssr_port}:${ssr_protocol}:${ssr_method}:${SSRobfs}:${tmp1}/obfsparam=" | base64 -w0)
-ssr_link1="ssr://${tmp1}"
-ssr_link2="ssr://${tmp2}"
+ssr_link="ssr://${tmp2}"
 /etc/init.d/ssrmu restart
 service cron restart
 clear
 echo -e ""
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[44;1;39m   ⇱ TRIAL SHADOWSOCKSR SSR${off} ⇲       \E[0m"
+echo -e "\E[44;1;39m   ⇱ TRIAL SHADOWSOCKSR SSR ⇲      \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e " ${white}ISP   : $ISP"
-echo -e " CITY          : $CITY"
-echo -e " COUNTRY       : $COUNTRY"
-echo -e " Server IP     : ${MYIP}"
-echo -e " Host          : ${domain}"
-echo -e " Port          : ${ssr_port}"
-echo -e " Password      : ${ssr_password}"
-echo -e " Encryption    : ${ssr_method}"
-echo -e " Protocol      : ${ssr_protocol}"
-echo -e " Obfs          : ${ssr_obfs}"
-echo -e " Device limit  : ${ssr_protocol_param}${off}"
+echo -e "IP/Host     : ${MYIP}"
+echo -e "Domain      : $domain"
+echo -e "Port        : ${ssr_port}"
+echo -e "Password    : ${ssr_password}"
+echo -e "Encryption  : ${ssr_method}"
+echo -e "Protocol    : ${Red_font_prefix}${ssr_protocol}"
+echo -e "Obfs        : ${Red_font_prefix}${ssr_obfs}"
+echo -e "Max Device  : ${ssr_protocol_param}"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "${white} LINK  SSR${off}"
-echo -e "${ssr_link1}" | lolcat
-echo -e ""
-echo -e "${ssr_link2}" | lolcat
-echo -e ""
+echo -e "Link SSR    : ${ssr_link}"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e " ${white}Aktif Selama : $masaaktif Hari"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
