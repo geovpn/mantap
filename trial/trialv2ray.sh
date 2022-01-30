@@ -12,7 +12,6 @@ CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
 # Getting
-MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
 # Getting
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
@@ -140,9 +139,9 @@ systemctl restart xray@v2ray-tls
 systemctl restart xray@v2ray-nontls
 service cron restart
 clear
-echo -e "${cyan}=====================${off}"
-echo -e "${cyan}TRIAL XRAY /VMESS${off}"
-echo -e "${cyan}=====================${off}"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\E[44;1;39m       ⇱ TRIAL XRAY / VMESS ⇲         \E[0m"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e " Remarks        : ${user}"
 echo -e " Bug            : ${bug}"
 echo -e " Domain         : ${domain}"
@@ -152,14 +151,14 @@ echo -e " ID             : ${uuid}"
 echo -e " AlterID        : 0"
 echo -e " Security       : auto"
 echo -e " Network        : ws"
-echo -e " Path           : geo${off}"
-echo -e "${cyan}=====================${off}"
+echo -e " Path           : geo"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "${purple}~> VMESS TLS : $off${xrayv2ray1}"
-echo -e "${cyan}=====================${off}"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "${purple}~> VMESS NON-TLS : $off${xrayv2ray2}"
-echo -e "${cyan}=====================${off}"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e " ${green}Aktif Selama   : $masaaktif Hari"
-echo -e "${cyan}====================${off}"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e ""
-echo -e "Script By Geo.NTB" | lolcat
+echo -e "Script By Geo.NTB"
 echo -e ""

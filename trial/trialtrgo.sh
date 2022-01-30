@@ -2,7 +2,7 @@
 # My Telegram : https://t.me/geovpn
 # ==========================================
 # Color
-#RED='\033[0;31m'
+RED='\033[0;31m'
 NC='\033[0m'
 GREEN='\033[0;32m'
 ORANGE='\033[0;33m'
@@ -108,9 +108,9 @@ link="trojan-go://${user}@${domain}:${trgo}/?sni=${domain}&type=ws&host=${domain
 END
 clear
 echo -e ""
-echo -e "=================================${off}"
-echo -e "    ~> TRIAL TROJAN-GO${off}"
-echo -e "=================================${off}"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\E[44;1;39m       ⇱ TRIAL TROJAN-GO ⇲         \E[0m"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e " ISP              : ${ISP}"
 echo -e " CITY             : ${CITY}"
 echo -e " COUNTRY          : ${COUNTRY}"
@@ -118,10 +118,10 @@ echo -e " Remarks          : ${user}"
 echo -e " Host             : ${domain}"
 echo -e " Port Trojan-GO   : ${trgo}"
 echo -e " Path WebSocket   : /trojango"
-echo -e "=================================${off}"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Link TrGo  : ${link}"
-echo -e "=================================${off}"
-echo -e " ${white}Aktif Selama   : $masaaktif Hari"
-echo -e "=================================${off}"
-echo -e " ${blue}- Mod By Geo Gabut${off}"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e " Aktif Selama   : $masaaktif Hari"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e " Mod By Geo Gabut"
 echo -e ""

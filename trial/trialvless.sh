@@ -1,20 +1,7 @@
 #!/bin/bash
-# My Telegram : https://t.me/geovpn
-# ==========================================
-# Color
-RED='\033[0;31m'
-NC='\033[0m'
-GREEN='\033[0;32m'
-ORANGE='\033[0;33m'
-BLUE='\033[0;34m'
-PURPLE='\033[0;35m'
-CYAN='\033[0;36m'
-LIGHT='\033[0;37m'
-# ==========================================
-# Getting
-MYIP=$(curl -sS ipinfo.io/ip)
-echo "Checking VPS"
-# Getting
+red='\e[1;31m'
+green='\e[0;32m'
+NC='\e[0m'
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 #########################
@@ -87,7 +74,7 @@ else
 domain=$IP
 fi
 tls="$(cat ~/log-install.txt | grep -w "Vless TLS" | cut -d: -f2|sed 's/ //g')"
-nontls="$(cat ~/log-install.txt | grep -w "Vless None TLS" | cut -d: -f2|sed 's/ //g')"
+none="$(cat ~/log-install.txt | grep -w "Vless None TLS" | cut -d: -f2|sed 's/ //g')"
 # Create Expried 
 masaaktif="1"
 exp=$(date -d "$masaaktif days" +"%Y-%m-%d")
@@ -107,22 +94,23 @@ systemctl restart xray@vless-nontls
 service cron restart
 clear
 echo -e ""
-echo -e "NAME : V2RAY/VLESS "
-echo -e "=================================" | lolcat
-echo -e "Remarks        : ${user}"
-echo -e "Domain         : ${domain}"
-echo -e "port TLS       : $tls"
-echo -e "port none TLS  : 8880"
-echo -e "id             : ${uuid}"
-echo -e "Encryption     : none"
-echo -e "network        : ws"
-echo -e "path           : geo"
-echo -e "=================================" | lolcat
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\E[44;1;39m   ⇱ Trial Xray/Vless Account ⇲    \E[0m"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "Remarks     : ${user}"
+echo -e "IP/Host     : ${MYIP}"
+echo -e "Address     : ${domain}"
+echo -e "Port TLS    : $tls"
+echo -e "Port No TLS : 8880"
+echo -e "User ID     : ${uuid}"
+echo -e "Encryption  : none"
+echo -e "Network     : ws"
+echo -e "Path        : nur"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Link TLS    : ${xrayvless1}"
-echo -e "=================================" | lolcat
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Link No TLS : ${xrayvless2}"
-echo -e "=================================" | lolcat
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e " ${green}Aktif Selama   : $masaaktif Hari"
-echo -e "=================================" | lolcat
-echo -e "Script Installer By : Geo•NTB" | lolcat
-echo -e "=================================" | lolcat
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "Script Installer By : Geo•NTB"
