@@ -11,10 +11,6 @@ PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
-# Getting
-MYIP=$(wget -qO- ipinfo.io/ip);
-echo "Checking VPS"
-# Getting
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 #########################
@@ -101,11 +97,11 @@ sed -i 's/ssl=1/ssl=0/g' /etc/webmin/miniserv.conf
 rm -f /root/jcameron-key.asc
 clear
 echo ""
-echo "======================="
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo "  Done Install Webmin  "
-echo "======================="
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo "http://$IP:10000"
-echo "======================="
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo "Script By geovpn"
 }
 function restart () {
@@ -115,9 +111,9 @@ service webmin restart > /dev/null 2>&1
 echo " Start Uninstall Webmin"
 clear
 echo ""
-echo "======================="
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo "  Done Restart Webmin  "
-echo "======================="
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo "Script By geovpn"
 }
 function uninstall () {
@@ -130,9 +126,9 @@ sleep 0.5
 apt autoremove --purge webmin -y > /dev/null 2>&1
 clear
 echo ""
-echo "========================="
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo "  Done Uninstall Webmin  "
-echo "========================="
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo "Script By geovpn"
 }
 if [[ "$cek" = "perl" ]]; then
@@ -142,13 +138,13 @@ sts="${Error}"
 fi
 clear
 echo -e ""
-echo -e "================================"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "   Webmin Menu $sts        "
-echo -e "================================"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "1.Install Webmin"
 echo -e "2.Restart Webmin"
 echo -e "3.Uninstall Webmin"
-echo -e "================================"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 read -rp "Please Enter The Correct Number : " -e num
 if [[ "$num" = "1" ]]; then
 install
