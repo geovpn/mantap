@@ -284,7 +284,8 @@ echo ""
 echo -ne "[ ${yell}WARNING${NC} ] Do you want to reboot now ? (y/n)? "
 read answer
 if [ "$answer" == "${answer#[Yy]}" ] ;then
-echo " Reboot 5 Sec"
-sleep 5
+echo ""
+echo " Reboot 15 Sec"
+sleep 15
 rm -f setup.sh
 reboot
