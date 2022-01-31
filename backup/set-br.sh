@@ -1,57 +1,148 @@
 #!/bin/bash
-# ==========================================
-# Color
-RED='\033[0;31m'
-NC='\033[0m'
-GREEN='\033[0;32m'
-ORANGE='\033[0;33m'
-BLUE='\033[0;34m'
-PURPLE='\033[0;35m'
-CYAN='\033[0;36m'
-LIGHT='\033[0;37m'
-# ==========================================
-# Getting
-MYIP=$(wget -qO- ipinfo.io/ip);
-echo "Checking VPS"
-# Link Hosting Kalian
-geovpn="raw.githubusercontent.com/geovpn/mantap/main/backup"
+dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
+biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
+#########################
 
-apt install rclone -y
-printf "q\n" | rclone config
-wget -O /root/.config/rclone/rclone.conf "https://${geovpn}/rclone.conf"
-git clone  https://github.com/magnific0/wondershaper.git
-cd wondershaper
-make install
+BURIQ () {
+    curl -sS https://raw.githubusercontent.com/geovpn/perizinan/main/main/allow > /root/tmp
+    data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
+    for user in "${data[@]}"
+    do
+    exp=( `grep -E "^### $user" "/root/tmp" | awk '{print $3}'` )
+    d1=(`date -d "$exp" +%s`)
+    d2=(`date -d "$biji" +%s`)
+    exp2=$(( (d1 - d2) / 86400 ))
+    if [[ "$exp2" -le "0" ]]; then
+    echo $user > /etc/.$user.ini
+    else
+    rm -f /etc/.$user.ini > /dev/null 2>&1
+    fi
+    done
+    rm -f /root/tmp
+}
+
+MYIP=$(curl -sS ipv4.icanhazip.com)
+Name=$(curl -sS https://raw.githubusercontent.com/geovpn/perizinan/main/main/allow | grep $MYIP | awk '{print $2}')
+echo $Name > /usr/local/etc/.$Name.ini
+CekOne=$(cat /usr/local/etc/.$Name.ini)
+
+Bloman () {
+if [ -f "/etc/.$Name.ini" ]; then
+CekTwo=$(cat /etc/.$Name.ini)
+    if [ "$CekOne" = "$CekTwo" ]; then
+        res="Expired"
+    fi
+else
+res="Permission Accepted..."
+fi
+}
+
+PERMISSION () {
+    MYIP=$(curl -sS ipv4.icanhazip.com)
+    IZIN=$(curl -sS https://raw.githubusercontent.com/geovpn/perizinan/main/main/allow | awk '{print $4}' | grep $MYIP)
+    if [ "$MYIP" = "$IZIN" ]; then
+    Bloman
+    else
+    res="Permission Denied!"
+    fi
+    BURIQ
+}
+clear
 cd
-rm -rf wondershaper
+red='\e[1;31m'
+green='\e[0;32m'
+yell='\e[1;33m'
+NC='\e[0m'
+curl -sS https://raw.githubusercontent.com/geovpn/perizinan/main/ascii-home
+echo "Setting UP"
+echo "Progress..."
+sleep 3
+echo ""
+green() { echo -e "\\033[32;1m${*}\\033[0m"; }
+red() { echo -e "\\033[31;1m${*}\\033[0m"; }
+PERMISSION
+if [ "$res" = "Permission Accepted..." ]; then
+green "Permission Accepted.."
+else
+red "Permission Denied!"
+exit 0
+fi
+sleep 3
+echo -e "
+"
+date
+echo ""
+sleep 1
+echo -e "[ ${green}INFO${NC} ] Checking... "
+sleep 2
+sleep 1
+echo -e "[ ${green}INFO${NC} ] Download & Install rclone... "
+curl -fsSL https://rclone.org/install.sh | bash > /dev/null 2>&1
+printf "q\n" | rclone config > /dev/null 2>&1
+sleep 1
+echo -e "[ ${green}INFO${NC} ] Downloading rclone config ... "
+#wget -q -O /root/.config/rclone/rclone.conf "https://console.cdnaja.io/dll/system/rclone.conf"
+git clone https://github.com/magnific0/wondershaper.git &> /dev/null
+cd wondershaper
+sleep 1
+echo -e "[ ${green}INFO${NC} ] Installing wondershaper... "
+make install > /dev/null 2>&1
+cd
+rm -rf wondershaper > /dev/null 2>&1
 echo > /home/limit
-apt install msmtp-mta ca-certificates bsd-mailx -y
-cat<<EOF>>/etc/msmtprc
-defaults
-tls on
-tls_starttls on
-tls_trust_file /etc/ssl/certs/ca-certificates.crt
 
+pkgs='msmtp-mta ca-certificates bsd-mailx'
+if ! dpkg -s $pkgs > /dev/null 2>&1; then
+sleep 1
+echo -e "[ ${green}INFO${NC} ] Installing... "
+apt install -y $pkgs > /dev/null 2>&1
+else
+sleep 1
+echo -e "[ ${green}INFO${NC} ] Already Installed... "
+fi
+sleep 1
+echo -e "[ ${green}INFO${NC} ] Creating service... "
+
+cat> /etc/msmtprc << EOF
 account default
 host smtp.gmail.com
 port 587
+from geogabut1981@gmail.com
+tls on
+tls_starttls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
 auth on
-user bckupvpns@gmail.com
-from bckupvpns@gmail.com
-password 1981NANA 
+user mantap
+password aww123321aww
 logfile ~/.msmtp.log
 EOF
+
 chown -R www-data:www-data /etc/msmtprc
-cd /usr/bin
-wget -O autobackup "https://${geovpn}/autobackup.sh"
-wget -O backup "https://${geovpn}/backup.sh"
-wget -O restore "https://${geovpn}/restore.sh"
-wget -O strt "https://${geovpn}/strt.sh"
-wget -O limitspeed "https://${geovpn}/limitspeed.sh"
-chmod +x autobackup
-chmod +x backup
-chmod +x restore
-chmod +x strt
-chmod +x limitspeed
-cd
+sleep 1
+echo -e "[ ${green}INFO${NC} ] Downloading files... "
+wget -q -O /usr/bin/backup "https://raw.githubusercontent.com/geovpn/perizinan/main/backup.sh" && chmod +x /usr/bin/backup
+wget -q -O /usr/bin/bckp "https://raw.githubusercontent.com/geovpn/perizinan/main/bckp.sh" && chmod +x /usr/bin/bckp
+wget -q -O /usr/bin/restore "https://raw.githubusercontent.com/geovpn/perizinan/main/restore.sh" && chmod +x /usr/bin/restore
+#wget -q -O /usr/bin/kernel-updt "https://console.cdnaja.io/dll/system/kernel-updt.sh" && chmod +x /usr/bin/kernel-updt
+#wget -q -O /usr/bin/ubuntu-kernel "https://console.cdnaja.io/dll/system/ubuntu-kernel.sh" && chmod +x /usr/bin/ubuntu-kernel
+#wget -q -O /usr/bin/ram "https://console.cdnaja.io/dll/system/ram.py" && chmod +x /usr/bin/ram
+#wget -q -O /usr/bin/speedtest "https://console.cdnaja.io/dll/system/speedtest_cli.py" && chmod +x /usr/bin/speedtest
+#wget -q -O /usr/bin/swapkvm "https://console.cdnaja.io/dll/system/swapkvm.sh" && chmod +x /usr/bin/swapkvm
+#wget -q -O /usr/bin/wbmn "https://console.cdnaja.io/dll/system/webmin.sh" && chmod +x /usr/bin/wbmn
+#wget -q -O /usr/bin/update-script "https://console.cdnaja.io/dll/system/update-script.sh" && chmod +x /usr/bin/update-script
+#wget -q -O /usr/bin/cloudflare-pointing "https://console.cdnaja.io/dll/cloudflare-pointing.sh" && chmod +x /usr/bin/cloudflare-pointing
+#wget -q -O /usr/bin/cloudflare-setting "https://console.cdnaja.io/dll/cloudflare-setting.sh" && chmod +x /usr/bin/cloudflare-setting
+#wget -q -O /usr/bin/cleaner "https://console.cdnaja.io/dll/logcleaner.sh" && chmod +x /usr/bin/cleaner
+#wget -q -O /usr/bin/onoff "https://console.cdnaja.io/dll/system/onoffservice.sh" && chmod +x /usr/bin/onoff
+
+if [ ! -f "/etc/cron.d/cleaner" ]; then
+cat> /etc/cron.d/cleaner << END
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+* */6 * * * root /usr/bin/cleaner
+END
+fi
+
+service cron restart > /dev/null 2>&1
+
 rm -f /root/set-br.sh
