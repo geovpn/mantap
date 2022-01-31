@@ -360,11 +360,3 @@ exit 0
 else
 reboot
 fi
-systemctl restart ssrmu > /dev/null 2>&1
-echo -ne "[ ${yell}WARNING${NC} ] Do you want to reboot now ? (y/n)? "
-read answer
-if [ "$answer" == "${answer#[Yy]}" ] ;then
-exit 0
-else
-reboot
-fi
