@@ -250,11 +250,9 @@ echo "   - XRAYS Vless TLS         : 2083"  | tee -a log-install.txt
 echo "   - XRAYS Vless None TLS    : 8880"  | tee -a log-install.txt
 echo "   - XRAYS Trojan            : 2087"  | tee -a log-install.txt
 echo "   - Websocket SSL           : 443, 2096"  | tee -a log-install.txt
-echo "   - Websocket Drop          : 2052,"  | tee -a log-install.txt
+echo "   - Websocket Drop          : 2052, 2095"  | tee -a log-install.txt
 echo "   - Websocket Ovpn          : 2086"  | tee -a log-install.txt
-echo "   - OHP SSH                 : 8181"  | tee -a log-install.txt
-echo "   - OHP Dropbear            : 8282"  | tee -a log-install.txt
-echo "   - OHP OpenVPN             : 8383"  | tee -a log-install.txt
+echo "   - OHP                     : 8181, 8282, 8383"  | tee -a log-install.txt
 echo "   - Tr Go                   : 2053"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "   >>> Server Information & Other Features"  | tee -a log-install.txt
